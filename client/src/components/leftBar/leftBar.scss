@@ -1,0 +1,75 @@
+@import "../../style.scss";
+.leftBar {
+    position: sticky;
+    top:70px;
+    height: calc(100vh - 70px);
+    @include mobile{
+        display: none;
+      }
+    // overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .leftBarContainer {
+        background-color: white;
+        width: 20vw;
+        height: 100vh;
+        margin-top: 1vh;
+        background-color: white;
+
+        .leftBarMenu {
+            display: flex;
+            flex-direction: column;
+
+            gap: 1vh;
+
+            .leftBarThemeSpan {
+                display: flex;
+                margin-left: 1vw;
+                margin-bottom: 1vh;
+            }
+
+            .leftBarUser {
+                margin-left: 1vw;
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                span {
+                    margin-left: 1vw;
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+            }
+
+            .leftBarItem {
+                display: flex;
+                align-items: center;
+                gap: 1vw;
+                margin-left: 1vw;
+
+                // margin-top: 2vh;
+                img {}
+
+                span {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+
+                hr {
+                    margin: 20px 0px;
+                    border: none;
+                    height: 0.5px;
+
+                }
+            }
+        }
+    }
+}

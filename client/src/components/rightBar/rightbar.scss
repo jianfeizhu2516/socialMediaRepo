@@ -1,0 +1,88 @@
+@import "../../style.scss";
+.rightBarContainer{
+    position: sticky;
+    top:70px;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    @include mobile{
+        display: none;
+      }
+      @include tablet{
+        display: none;
+      }
+    .rightBarEachContainer{
+        height: 30vh;
+        width: 25vw;
+        background-color: white;
+        -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+        -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+        margin-bottom: 2vh;
+        span{
+               display: flex;
+               margin-bottom: 1vh;
+               color: gray;
+        }
+        .rightBarItem{
+            display: flex;
+            gap:2vh;
+            justify-content: space-between;
+            align-items: center;
+            .rightBarUserInfo{
+                display: flex;
+                align-items: center;
+                gap:1vw;
+                position: relative;
+                img{
+                    width:40px;
+                    height:40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                span{
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: black;
+                }
+                .online{
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: limegreen;
+                    position: absolute;
+                    top: 0;
+                    left: 30px;
+                    //图片的小图标 比如小绿点显示在线 
+                    //实现方法是设置一个子元素div 给一个position absolute
+                    //父亲元素需要Position relative
+                    //然后top left是相对于父亲元素的偏移
+                }
+            }
+            .rightBarButtonGroup{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .rightBarButton{
+                    border: none;
+                    padding: 5px;
+                    color: white;
+                    cursor: pointer;
+      
+                    &:first-child {
+                      background-color: #5271ff;
+                    }
+      
+                    &:last-child {
+                      background-color: #f0544f;
+                    }
+                }
+            }
+            .rightBarTimeAgo{
+                color: black;
+                font-size: 15px;
+                font-weight: 500;
+            }
+        }
+    }
+}
