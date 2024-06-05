@@ -1,100 +1,87 @@
 .register {
+    height: 100vh;
+    background-color: rgb(193, 190, 255);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: rgb(193, 190, 255);
-
+  
     .card {
+      width: 50%;
+      display: flex;
+      flex-direction: row-reverse;
+      background-color: white;
+      border-radius: 10px;
+      min-height: 600px;
+      overflow: hidden;
+  
+      .left {
+        flex: 1;
+        background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+          url("https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600")
+            center;
+        background-size: cover;
+        padding: 50px;
         display: flex;
-        background-color: white;
-        flex-direction: row-reverse;
-        width: 50%;
-        border-radius: 10px;
-        min-height: 65vh;
-
-        .left {
-            flex: 1; //两个兄弟div都是flex:1那就是一样宽的意思 假设都是水平排列的
-            //设置图片不一定要Img tag可以使用div的background属性 添加url 和 background:cover
-            background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
-                url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600") center;
-            background-size: cover;
-            display: flex;
-
-            flex-direction: column;
-            align-items: center;
-            padding: 50px;
+        flex-direction: column;
+        gap: 30px;
+        color: white;
+  
+        h1 {
+          font-size: 100px;
+          line-height: 100px;
+        }
+        
+        p {
+        }
+  
+        span {
+          font-size: 14px;
+        }
+        
+        button {
+          width: 50%;
+          padding: 10px;
+          border: none;
+          background-color: white;
+          color: rebeccapurple;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+  
+      .right {
+        flex: 1;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        justify-content: center;
+  
+        h1 {
+        color: #555;
+        }
+        
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          
+          input {
+          border: none;
+          border-bottom: 1px solid lightgray;
+          padding: 20px 10px;
+          }
+          
+          button {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            background-color: #938eef;
             color: white;
-            
-            //gap作用于父级元素下的每个子元素
-            h1 {
-                color: white;
-                height: 100px;
-                margin-top: 30%;
-                
-            }
-
-            p {
-                margin-top: -2%;
-                color: white;
-                
-            }
-
-            span {
-                margin-top: 6%;
-                font-size: 14px;
-                color: white;
-            }
-
-            button {
-                margin-top: 6%;
-                background-color: white;
-                color: rebeccapurple;
-                border: none;
-                cursor: pointer;
-                font-weight: bold;
-                width: 50%;
-                padding: 10px;
-            }
+            font-weight: bold;
+            cursor: pointer;
+          }
         }
-
-        .right {
-            flex: 1;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap:50px;
-            h1 {
-                color: #555;
-            }
-
-            form {
-                display: flex;
-                flex-direction: column;
-                gap: 30px; //设置所有相邻兄弟元素之间的距离
-
-                input {
-                    border: none;
-                    border-bottom: 1px solid lightgray;
-                    padding: 20px 10px;
-                   
-                }
-                input:focus{
-                    outline: none; /* 取消聚焦时的外边框 */
-                }
-
-                button {
-                    color: white;
-                    background-color: #938eef;
-                    border: none;
-                    width: 50%;
-                    padding: 10px;
-                    font-weight: bold;
-                    cursor: pointer;
-                }
-            }
-
-        }
+      }
     }
-}
+  }

@@ -16,10 +16,13 @@ import RightBar from "./components/rightBar/RightBar"
 import LeftBar from "./components/leftBar/LeftBar"
 import { useContext } from 'react';
 import { AuthContext } from './context/authContext';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 function App() {
   const {currentUser} = useContext(AuthContext);
+  const queryClient = new QueryClient();
   const Layout = () => {
     return (
+      <QueryClientProvider client={queryClient}>
       <div >
         <Navbar />
         <div style={{ display: "flex" }}>
@@ -29,6 +32,7 @@ function App() {
 
         </div>
       </div>
+      </QueryClientProvider>
     )
   }
   const ProtectedRoute = ({ children }) => {
@@ -44,16 +48,16 @@ function App() {
       element: (
         <ProtectedRoute>
           <Layout />
-        </ProtectedRoute>),
+        </ProtectedRoute>
+        ),
       children: [
-        {
-          path: "/profile/:id",
-          element: <Profile />
-        },
-
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/profile/:id",
+          element: <Profile />
         },
       ]
     },

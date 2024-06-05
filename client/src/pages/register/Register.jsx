@@ -1,33 +1,82 @@
-import "./register.scss"
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./register.scss";
+import axios from "axios";
+
 const Register = () => {
-    return (
-        <div className="register">
-            <div className="card">
-                <div className="left">
-                    <h1>Hello World.</h1>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
-                        alias totam numquam ipsa exercitationem dignissimos, error nam,
-                        consequatur.
-                    </p>
-                    <span>Don't have an account?</span>
+  const [inputs, setInputs] = useState({
+    username: "",
+    email: "",
+    password: "",
+    name: "",
+  });
+  const [err, setErr] = useState(null);
 
-                    <button>Register</button>
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-                </div>
+  const handleClick = async (e) => {
+    e.preventDefault();
 
-                <div className="right">
-                    <h1>Login</h1>
-                    <form>
-                        <input type="text" placeholder="Username" />
-                        <input type="password" placeholder="password" />
-                        <button>Login</button>
-                    </form>
+    try {
+      await axios.post("http://localhost:8800/api/auth/register", inputs);
+    } catch (err) {
+      setErr(err.response.data);
+    }
+  };
 
-                </div>
-            </div>
+  console.log(err)
 
+  return (
+    <div className="register">
+      <div className="card">
+        <div className="left">
+          <h1>Social Hub.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
+            alias totam numquam ipsa exercitationem dignissimos, error nam,
+            consequatur.
+          </p>
+          <span>Do you have an account?</span>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
         </div>
-    )
-}
+        <div className="right">
+          <h1>Register</h1>
+          <form>
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              onChange={handleChange}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              onChange={handleChange}
+            />
+            {err && err}
+            <button onClick={handleClick}>Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Register;
