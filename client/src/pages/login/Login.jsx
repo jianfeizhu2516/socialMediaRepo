@@ -38,7 +38,7 @@ const Login = () => {
                     </p>
                     <span>Don't have an account?</span>
 
-                    <button>Register</button>
+                    <button onClick={()=>{navigate('/register')}}>Register</button>
 
                 </div>
 
